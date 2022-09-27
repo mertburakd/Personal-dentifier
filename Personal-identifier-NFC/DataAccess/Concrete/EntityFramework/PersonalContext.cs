@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Concrete.EntityFramwork
@@ -12,15 +13,11 @@ namespace DataAccess.Concrete.EntityFramwork
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("appsettings.json")
             .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyData")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyData"));
 
         }
 
-        //public  DbSet<Card> Cards { get; set; }
-        //public  DbSet<Adress> Adresses { get; set; }
-        //public  DbSet<Orders> Orders { get; set; }
-        //public  DbSet<Product> Products { get; set; }
-        //public  DbSet<Category> Categories { get; set; }
+        public DbSet<Personal> personals { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
