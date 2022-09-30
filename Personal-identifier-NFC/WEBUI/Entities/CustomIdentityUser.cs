@@ -13,6 +13,8 @@ namespace WEBUI.Entities
         public string IpAdress { get; set; }
         public bool KvkkIsSign { get; set; }
         public DateTime KvkkAgreeDate { get; set; }
+        public string? ProfilePicture { get; set; }
+        public string? ProfileSlider { get; set; }
 
         public static implicit operator UserDetailViewModel(CustomIdentityUser user)
         {
@@ -22,6 +24,8 @@ namespace WEBUI.Entities
                 KvkkIsSign = user.KvkkIsSign,
                 KvkkAgreeDate=user.KvkkAgreeDate,
                 UserId=user.Id,
+                ProfilePicture = user.ProfilePicture,
+                ProfileSlider = user.ProfileSlider,
             };
         }
     }

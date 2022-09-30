@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Core.Results;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Business.Abstract
 {
     public interface IPersonalService
     {
-        void Add(Personal personal);
+        IResult Add(Personal personal);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models.Dto;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WEBUI.Models;
 
@@ -15,6 +16,10 @@ namespace WEBUI.Controllers
 
         public IActionResult Index()
         {
+            PersonalDataDto personalDataDto = new PersonalDataDto();
+
+
+
             return View();
         }
 

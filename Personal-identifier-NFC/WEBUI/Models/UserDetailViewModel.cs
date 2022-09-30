@@ -6,6 +6,8 @@ namespace WEBUI.Models
     {
         public string IpAdress { get; set; }
         public bool KvkkIsSign { get; set; }
+        public string? ProfilePicture { get; set; }
+        public string? ProfileSlider { get; set; }
         public DateTime KvkkAgreeDate { get; set; }
         public int UserId { get; set; }
 
@@ -16,6 +18,8 @@ namespace WEBUI.Models
                 IpAdress = userDetail.IpAdress,
                 KvkkIsSign = userDetail.KvkkIsSign,
                 KvkkAgreeDate=userDetail.KvkkAgreeDate,
+                ProfilePicture=userDetail.ProfilePicture,
+                ProfileSlider=userDetail.ProfileSlider,
             };
         }
     }

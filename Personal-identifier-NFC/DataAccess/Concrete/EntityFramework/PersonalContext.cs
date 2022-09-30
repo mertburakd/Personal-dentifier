@@ -18,6 +18,7 @@ namespace DataAccess.Concrete.EntityFramwork
         }
 
         public DbSet<Personal> personals { get; set; }
+        public DbSet<BaseValues> baseValues { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

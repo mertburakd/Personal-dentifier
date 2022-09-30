@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Results;
 using DataAccess.Abstract;
 using Entities.Models;
 using System;
@@ -18,9 +20,10 @@ namespace Business.Concrete
             _personalDal = personalDal;
         }
 
-        public void Add(Personal personal)
+        public IResult Add(Personal personal)
         {
             _personalDal.Add(personal);
+            return new SuccessResult(Messages.PersonalAdded);
         }
     }
 }

@@ -18,5 +18,6 @@ namespace Entities.Models
         public string Data { get; set; }
         public DateTime LastUpdate { get; set; }
         public string Slug { get; set; }
+        public bool Active { get; set; }
     }
 }

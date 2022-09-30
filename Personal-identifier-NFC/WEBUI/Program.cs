@@ -20,6 +20,8 @@ ConfigurationManager configuration = builder.Configuration;
 builder.Services.AddDbContext<CustomIdentityDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MyData")));
 builder.Services.AddSingleton<IPersonalService, PersonalManager>();
 builder.Services.AddSingleton<IPersonalDal, EfPersonalDal>();
+builder.Services.AddSingleton<IBaseValuesService, BaseValuesManager>();
+builder.Services.AddSingleton<IBaseValuesDal, EfBaseValuesDal>();
 builder.Services.AddIdentity<CustomIdentityUser, CustomIdentityRole>(_ =>
 {
     _.Password.RequiredLength = 5; //En az kaç karakterli olmasý gerektiðini belirtiyoruz.
