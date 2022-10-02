@@ -178,6 +178,10 @@ namespace WEBUI.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IpAdress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -187,6 +191,10 @@ namespace WEBUI.Migrations
 
                     b.Property<bool>("KvkkIsSign")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");

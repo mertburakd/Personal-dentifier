@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WEBUI.Migrations
 {
-    public partial class fs : Migration
+    public partial class bbb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,6 +38,10 @@ namespace WEBUI.Migrations
                     IpAdress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KvkkIsSign = table.Column<bool>(type: "bit", nullable: false),
                     KvkkAgreeDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProfilePicture = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfileSlider = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),

@@ -1,0 +1,15 @@
+﻿@using System.Security.Claims
+@model Entities.Models.Personal
+
+
+<ul class="nav navbar-nav d-none d-sm-inline-flex flex-row">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle small text-capitalize" href="/MyProfile/@Model.Slug" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="~/Content/Home/Game/assets/img/propic/ninja_kirmizi_01.png" class="img-xs rounded-circle mr-2" alt="Avatar"> @User.FindFirstValue(ClaimTypes.Name)
+        </a>
+        <div class="dropdown-menu position-absolute" aria-labelledby="dropdownUser">
+            <a class="dropdown-item" href="/MyProfile/@Model.Slug"><span class="mr-2"><i class="fas fa-user"></i></span>My Profile</a>
+            <a class="dropdown-item" href="/Account/LogOff"><span class="mr-2"><i class="fas fa-sign-out-alt"></i></span>Logout</a>
+        </div>
+    </li>
+</ul>

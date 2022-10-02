@@ -1,5 +1,5 @@
 ﻿@using System.Threading.Tasks
-@model WEBUI.LoginModels.RegisterViewModel
+@model Entities.Models.Dto.LoginModels.RegisterViewModel
 @{
     Layout = null;
 }
@@ -29,7 +29,31 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-                <form asp-controller="Account" asp-action="RegisterAdmin" method="post" class="form-horizontal" role="form">
+                <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="This Area for First Name Required">
+                        <input class="input100" asp-for="FirstName" type="text" placeholder="First Name">
+                        <span asp-validation-for="FirstName" class="form-control"></span>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="fas fa-crown"></span>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="This Area for Last Name Required">
+                        <input class="input100" asp-for="LastName" type="text" placeholder="Last Name">
+                        <span asp-validation-for="FirstName" class="form-control"></span>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="fas fa-crown"></span>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="This Area for Url Required">
+                        <input class="input100" asp-for="Slug" type="text" placeholder="This area for your Url Address">
+                        <span asp-validation-for="Slug" class="form-control"></span>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="fas fa-crown"></span>
+                        </span>
+                    </div>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Valid email is required: ex@abc.xyz">
                         <input class="input100" asp-for="UserName" type="text" placeholder="Kullanıcı adı Gir">
                         <span asp-validation-for="UserName" class="form-control"></span>

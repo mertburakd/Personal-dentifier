@@ -10,6 +10,8 @@ namespace WEBUI.Models
         public string? ProfileSlider { get; set; }
         public DateTime KvkkAgreeDate { get; set; }
         public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         public static implicit operator CustomIdentityUser(UserDetailViewModel userDetail)
         {
@@ -20,6 +22,8 @@ namespace WEBUI.Models
                 KvkkAgreeDate=userDetail.KvkkAgreeDate,
                 ProfilePicture=userDetail.ProfilePicture,
                 ProfileSlider=userDetail.ProfileSlider,
+                FirstName=userDetail.FirstName,
+                LastName=userDetail.LastName,
             };
         }
     }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WEBUI.LoginModels
+namespace Entities.Models.Dto.LoginModels
 {
     public class LoginViewModel
     {

@@ -1,6 +1,8 @@
-﻿using Entities.Models.Dto;
+﻿using Business.Abstract;
+using Entities.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using WEBUI.Models;
 
 namespace WEBUI.Controllers
@@ -8,18 +10,17 @@ namespace WEBUI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IPersonalService _personalService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IPersonalService personalService)
         {
             _logger = logger;
+            _personalService = personalService;
         }
 
         public IActionResult Index()
         {
-            PersonalDataDto personalDataDto = new PersonalDataDto();
-
-
-
+           
             return View();
         }
 

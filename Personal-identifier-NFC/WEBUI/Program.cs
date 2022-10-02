@@ -7,6 +7,7 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
+using Business.Mapper.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +18,16 @@ builder.Services.AddSession();
 
 
 ConfigurationManager configuration = builder.Configuration;
-builder.Services.AddDbContext<CustomIdentityDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MyData")));
+
+
+builder.Services.AddAutoMapper(typeof(AutoMapping));
 builder.Services.AddSingleton<IPersonalService, PersonalManager>();
 builder.Services.AddSingleton<IPersonalDal, EfPersonalDal>();
 builder.Services.AddSingleton<IBaseValuesService, BaseValuesManager>();
 builder.Services.AddSingleton<IBaseValuesDal, EfBaseValuesDal>();
+
+
+builder.Services.AddDbContext<CustomIdentityDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MyData")));
 builder.Services.AddIdentity<CustomIdentityUser, CustomIdentityRole>(_ =>
 {
     _.Password.RequiredLength = 5; //En az kaç karakterli olmasý gerektiðini belirtiyoruz.
@@ -57,6 +63,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonalIdentity", Version = "v1" });
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -86,5 +93,9 @@ app.UseSwaggerUI(option =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(name: "slugroute",
+pattern: "{*SlugUrl}",
+defaults: new { controller = "Profile", action = "MyProfile" });
 
 app.Run();

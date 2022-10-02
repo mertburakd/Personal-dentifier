@@ -20,5 +20,10 @@ namespace Business.Concrete
             _baseValuesDal.Add(baseValues);
             return new SuccessResult(Messages.ValuesAdded);
         }
+
+        public IDataResult<List<BaseValues>> GetAllActive()
+        {
+            return new SuccessDataResult<List<BaseValues>>(_baseValuesDal.GetList(q=>q.Active==true).ToList());
+        }
     }
 }
