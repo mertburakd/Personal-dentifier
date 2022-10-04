@@ -17,5 +17,6 @@ namespace Business.Abstract
         bool SlugCheck(string slug);
         IDataResult<List<PersonalDataDto>> PersonalDataView(string Slug);
         IDataResult<Personal> GetUserData(int userId);
+        IResult Delete(int UserId);
     }
 }

@@ -77,12 +77,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//app.UseXMLSitemap(env.ContentRootPath);
 
-app.UseStatusCodePages();
 app.UseStatusCodePagesWithReExecute("/Home/ErrorPage", "?code={0}");
-app.UseAuthorization();
-app.UseAuthentication();
+app.UseResponseCaching();
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseStatusCodePages();
 app.UseSwagger();
 
 app.UseSwaggerUI(option =>

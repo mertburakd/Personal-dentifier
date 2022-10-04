@@ -1,13 +1,51 @@
 ﻿@model List<Entities.Models.Dto.PersonalDataDto>
 
 
-@foreach (var item in Model)
-{
-    <h2>@item.Title</h2>
-    <h2>@item.Key</h2>
-    <h2>@item.Section</h2>
-    <h2>@item.Description</h2>
-    <h2>@item.Image</h2>
-    <h2>@item.IsActive</h2>
-    <h2>@item.Data</h2>
-}
+
+<div class="form-check form-switch">
+    <input class="form-check-input switch-input" type="checkbox" role="switch" id='1' class="aktifPasif" />
+    @*<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>*@
+</div>
+
+<div id="Partial">
+    @foreach (var item in Model.OrderBy(q => q.Section))
+    {
+        <div class="card-deck" style="width:8% !important;">
+            <div class="card">
+                <img class="card-img-top" src="~/UserImages/Stores/@item.Image" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p>@item.Key</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<script>
+
+    $("input.switch-input").on('change.bootstrapSwitch', function (e) {
+        var id;
+        if ($(this).is(':checked')) {
+            //alert('checked');
+            id = 1;
+        }
+        else {
+            //alert('not checked');
+            id = 0;
+        }
+        console.log(id);
+        $.ajax({
+            type: 'GET',
+            url: '/Profile/AktifPasif?id=' + id,  //işlem yaptığımız sayfayı belirtiyoruz
+            success: function (result) {
+                $("#Partial").html(result);
+
+            },
+            error: function (result) {
+                $("#Partial").html(result);
+            }
+        });
+    });
+</script>

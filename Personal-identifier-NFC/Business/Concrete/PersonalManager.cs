@@ -44,6 +44,12 @@ namespace Business.Concrete
             return new SuccessResult(Messages.PersonalCreatedNewUser);
         }
 
+        public IResult Delete(int UserId)
+        {
+            _personalDal.Delete(new Personal { UserId=UserId});
+            return new SuccessResult(Messages.PersonalDeleteUser);
+        }
+
         public IDataResult<Personal> GetUserData(int userId)
         {
             return new SuccessDataResult<Personal>(_personalDal.Get(q=>q.UserId==userId));
@@ -52,7 +58,7 @@ namespace Business.Concrete
         public IDataResult<List<PersonalDataDto>> PersonalDataView(string Slug)
         {
             var personaldata = _personalDal.Get(q=>q.Slug==Slug);
-            var map=_mapper.Map<List<PersonalDataDto>>(JsonConvert.DeserializeObject<List<BaseValues>>(personaldata.Data));
+            var map=_mapper.Map<List<PersonalDataDto>>(JsonConvert.DeserializeObject<List<BaseValues>>(personaldata.Data)).Where(q=>q.IsActive).ToList();
             return new SuccessDataResult<List<PersonalDataDto>>(map);
         }
 
